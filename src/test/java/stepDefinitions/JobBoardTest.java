@@ -14,7 +14,9 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import utility.WaitTypes;
 
+import java.net.SocketException;
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.*;
 
@@ -337,10 +339,13 @@ public class JobBoardTest {
             throw new RuntimeException(e);
         }
 
+
         if (PositionName.getText().equals("Data Analyst") && CompanyName.getText().equals("Axa Gmbh")) {
             System.out.println("Job is verified Successfully");
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         } else {
             System.out.println("Job is not posted");
         }
+
     }
 }

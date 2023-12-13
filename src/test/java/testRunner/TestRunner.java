@@ -15,7 +15,7 @@ import java.time.LocalDate;
         //plugin = {"html:reports/cucumber-html-reports/report.html"},
         //monochrome = true,
         //publish = true,
-        tags = "@Smoke"
+        tags = "@Admin"
 )
 public class TestRunner {
     //Empty
