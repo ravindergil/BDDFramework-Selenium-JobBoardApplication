@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: testRunner.TestRunner
 -------------------------------------------------------------------------------
-Tests run: 7, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 48.945 s <<< FAILURE! - in testRunner.TestRunner
-Feature to test Job Board Application.7. Create a new job listing : Create a new job listing.  Time elapsed: 15.558 s  <<< ERROR!
+Tests run: 9, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 310.017 s <<< FAILURE! - in testRunner.TestRunner
+Feature to test Navigation for Job Board Application.7. Create a new job listing : Create a new job listing.  Time elapsed: 33.219 s  <<< ERROR!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"css selector","selector":"#job_preview_submit_button"}
   (Session info: chrome=120.0.6099.110)
@@ -10,9 +10,9 @@ For documentation on this error, please visit: https://www.selenium.dev/document
 Build info: version: '4.16.1', revision: '9b4c83354e'
 System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.9'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [1c36614d8d16693cc0dbb6abfcf855d2, findElement {using=id, value=job_preview_submit_button}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 120.0.6099.110, chrome: {chromedriverVersion: 120.0.6099.71 (9729082fe617..., userDataDir: C:\Users\INT006~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53845}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53845/devtoo..., se:cdpVersion: 120.0.6099.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 1c36614d8d16693cc0dbb6abfcf855d2
+Command: [57f63480d7d687b82ed5ee55bcfccf35, findElement {using=id, value=job_preview_submit_button}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 120.0.6099.110, chrome: {chromedriverVersion: 120.0.6099.71 (9729082fe617..., userDataDir: C:\Users\INT006~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59238}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59238/devtoo..., se:cdpVersion: 120.0.6099.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 57f63480d7d687b82ed5ee55bcfccf35
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
@@ -26,6 +26,6 @@ Session ID: 1c36614d8d16693cc0dbb6abfcf855d2
 	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:360)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:354)
-	at stepDefinitions.JobBoardTest.click_submit_listing(JobBoardTest.java:212)
-	at ✽.Click Submit Listing(file:///C:/Users/INT006372/IdeaProjects/BDDFramework-Selenium-JobBoardApplication/src/test/java/Features/JobBoardTest.feature:43)
+	at stepDefinitions.JobBoardTest.click_submit_listing(JobBoardTest.java:221)
+	at ✽.Click Submit Listing(file:///C:/Users/INT006372/IdeaProjects/BDDFramework-Selenium-JobBoardApplication/src/test/java/Features/JobBoardTest.feature:23)
 

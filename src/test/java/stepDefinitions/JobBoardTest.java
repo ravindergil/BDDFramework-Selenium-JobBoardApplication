@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -31,8 +32,15 @@ public class JobBoardTest {
     String HeaderImageURL;
     String SecondHeaderText;
 
-    /* Scenario 1 Methods */
+/*
+    @After
+    public void afterScenario() {
+        driver.close();
+    }
+*/
 
+
+    /* Scenario 1 Methods */
     @Given("^User open the Browser and Navigate to URL$")
     public void user_open_the_browser_and_navigate_to_url() {
         driver.get(ReadProperties.getURL());
@@ -146,21 +154,16 @@ public class JobBoardTest {
         WebElement JobFilled = driver.findElement(By.xpath("//div[@class='single_job_listing']/ul/li[3]"));
         String JobFilledText = JobFilled.getText();
 
-        try {
-            if (JobFilledText.equals("This position has been filled")){
-                System.out.println("Job is not available");
-            } else {
-                WebElement ApplyBtn = driver.findElement(By.className("application_button button"));
-                ApplyBtn.click();
-                WebElement emailID = driver.findElement(By.className("job_application_email"));
-                String EmailText = emailID.getAttribute("href");
-                System.out.println(EmailText);
-            }
-        } catch (Exception exp) {
-            System.out.println(exp.getMessage());
-        } finally {
-            System.out.println("Finally Block");
+        if (JobFilledText.equals("This position has been filled")){
+            System.out.println("Job is not available");
+        } else {
+            WebElement ApplyBtn = driver.findElement(By.className("application_button button"));
+            ApplyBtn.click();
+            WebElement emailID = driver.findElement(By.className("job_application_email"));
+            String EmailText = emailID.getAttribute("href");
+            System.out.println(EmailText);
         }
+
     }
 
     /* Scenario 7 Methods */
