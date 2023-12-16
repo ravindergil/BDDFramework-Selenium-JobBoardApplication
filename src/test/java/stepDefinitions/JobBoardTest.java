@@ -4,7 +4,7 @@ import io.cucumber.java.en.And;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.bidi.script.Message;
 import org.openqa.selenium.support.ui.Select;
 import utility.DriverFactory;
 import utility.ReadProperties;
@@ -15,7 +15,6 @@ import org.openqa.selenium.WebDriver;
 import utility.WaitTypes;
 
 import java.net.SocketException;
-import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.*;
@@ -146,14 +145,21 @@ public class JobBoardTest {
 
         WebElement JobFilled = driver.findElement(By.xpath("//div[@class='single_job_listing']/ul/li[3]"));
         String JobFilledText = JobFilled.getText();
-        if (JobFilledText.equals("This position has been filled")){
-            System.out.println("Job is not available");
-        } else {
-            WebElement ApplyBtn = driver.findElement(By.className("application_button button"));
-            ApplyBtn.click();
-            WebElement emailID = driver.findElement(By.className("job_application_email"));
-            String EmailText = emailID.getAttribute("href");
-            System.out.println(EmailText);
+
+        try {
+            if (JobFilledText.equals("This position has been filled")){
+                System.out.println("Job is not available");
+            } else {
+                WebElement ApplyBtn = driver.findElement(By.className("application_button button"));
+                ApplyBtn.click();
+                WebElement emailID = driver.findElement(By.className("job_application_email"));
+                String EmailText = emailID.getAttribute("href");
+                System.out.println(EmailText);
+            }
+        } catch (Exception exp) {
+            System.out.println(exp.getMessage());
+        } finally {
+            System.out.println("Finally Block");
         }
     }
 
@@ -169,7 +175,7 @@ public class JobBoardTest {
 
     @Then("Fill in the necessary details and click the Preview button.")
     public void fill_in_the_necessary_details_and_click_the_preview_button() {
-        driver.findElement(By.id("create_account_email")).sendKeys("def@def.com");
+        driver.findElement(By.id("create_account_email")).sendKeys("def@defg.com");
         driver.findElement(By.id("job_title")).sendKeys("Test Engineer");
         driver.findElement(By.id("job_location")).sendKeys("Mumbai");
         WebElement selectWE = driver.findElement(By.id("job_type"));

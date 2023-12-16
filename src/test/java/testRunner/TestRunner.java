@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/java/Features/JobBoardTest.feature",
+        features = "src/test/java/Features/*.feature",
         glue = {"stepDefinitions"},
         //dryRun = true,
         //plugin = {"html:reports/cucumber-html-reports/report.html"},

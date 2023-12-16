@@ -1,6 +1,6 @@
 @JobBoardTest_Admin
 
-Feature: To test Job Board Application for Admin
+Feature: To test Admin Tests for Job Board Application
 
   @Eighth @Admin
   Scenario: Login into the website’s backend - Visit the site’s backend and login
