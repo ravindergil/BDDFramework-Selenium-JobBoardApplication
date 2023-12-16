@@ -13,7 +13,8 @@ import java.time.LocalDate;
         glue = {"stepDefinitions"},
         //dryRun = true,
         //plugin = {"html:reports/cucumber-html-reports/report.html"},
-        //monochrome = true,
+        monochrome = true,
+        plugin={"pretty","json:target/cucumber/report.json"},
         //publish = true,
         tags = ""
 )

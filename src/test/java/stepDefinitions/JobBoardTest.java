@@ -31,14 +31,7 @@ public class JobBoardTest {
     String HeadingText;
     String HeaderImageURL;
     String SecondHeaderText;
-
-/*
-    @After
-    public void afterScenario() {
-        driver.close();
-    }
-*/
-
+    
 
     /* Scenario 1 Methods */
     @Given("^User open the Browser and Navigate to URL$")
