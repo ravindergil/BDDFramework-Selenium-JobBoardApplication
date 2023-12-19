@@ -10,11 +10,7 @@ public class ReadProperties {
     public static String fileLocation = "src/test/resources/url.properties";
     public static Properties prop;
     public static FileInputStream fis;
-    public static String URL;
-    public static String AdminURL;
-    public static String Browser;
-    public static String Username;
-    public static String Password;
+
 
     public static String readData(String value){
         prop = new Properties();
@@ -27,6 +23,9 @@ public class ReadProperties {
         return prop.getProperty(value);
     }
 
+    public static String getHostEnvURL(){
+        return readData("hostEnvURL");
+    }
     public static String getURL(){
         return readData("URL");
     }
@@ -44,5 +43,7 @@ public class ReadProperties {
     }
 
     public static String getBrowser() { return readData("Browser"); }
+
+    public static String getRunEnv() { return readData("RunEnv"); }
 
 }

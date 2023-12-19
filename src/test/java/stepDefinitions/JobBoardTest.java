@@ -1,11 +1,14 @@
 package stepDefinitions;
 
 import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.bidi.script.Message;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
 import utility.DriverFactory;
 import utility.ReadProperties;
@@ -15,6 +18,7 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import utility.WaitTypes;
 
+import java.net.MalformedURLException;
 import java.net.SocketException;
 import java.util.concurrent.TimeUnit;
 
@@ -23,7 +27,8 @@ import static org.junit.Assert.*;
 public class JobBoardTest {
 
     String BrowserName = ReadProperties.getBrowser();
-    public WebDriver driver = DriverFactory.getDriver(BrowserName);
+    String RunEnv = ReadProperties.getRunEnv();
+    public WebDriver driver = DriverFactory.getDriver(RunEnv, BrowserName);
     WaitTypes wait;
 
     String title;
@@ -31,7 +36,26 @@ public class JobBoardTest {
     String HeadingText;
     String HeaderImageURL;
     String SecondHeaderText;
-    
+    public Scenario scenario;
+
+
+    @Before
+    public void beforeHook(Scenario scenario) {
+        this.scenario = scenario;
+        System.out.println("===Before Hook Running===");
+        System.out.println("Execution starts for scenario: " + scenario.getName());
+        System.out.println("Session ID: " + scenario.getId());
+
+    }
+
+    @After
+    public void afterHook(Scenario scenario) {
+        this.scenario = scenario;
+        System.out.println("===After Hook Running===");
+        System.out.println("Execution ended for scenario: " + scenario.getName() + " and is " + scenario.getStatus());
+        //System.out.println("Test cases is: " + scenario.getStatus());
+
+    }
 
     /* Scenario 1 Methods */
     @Given("^User open the Browser and Navigate to URL$")
@@ -198,14 +222,11 @@ public class JobBoardTest {
 
         System.out.println("Preview button clicked");
 
-
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-
-
 
     }
 
@@ -240,7 +261,6 @@ public class JobBoardTest {
     }
     @When("Page Opens enter {string} and {string} and click login")
     public void page_opens_enter_and_and_click_login(String Username, String Password) {
-
         driver.findElement(By.id("user_login")).sendKeys(Username);
         driver.findElement(By.id("user_pass")).sendKeys(Password);
         driver.findElement(By.id("wp-submit")).click();

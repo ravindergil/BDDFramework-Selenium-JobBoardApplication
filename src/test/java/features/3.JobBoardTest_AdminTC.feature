@@ -9,6 +9,7 @@ Feature: To test Admin Tests for Job Board Application
     Then Verify the user Logged in Successfully
     And Close Browser
 
+
   @Ninth @Admin
   Scenario: Create a job listing using the backend - Visit the site’s backend and create a job listing
     Given Admin user open the Browser and Navigate to admin URL
@@ -20,6 +21,7 @@ Feature: To test Admin Tests for Job Board Application
     And Click publish button
     And Verify the job created
     Then Close Browser
+
 
 
 
