@@ -30,7 +30,6 @@ public class JobBoardTest {
     String RunEnv = ReadProperties.getRunEnv();
     public WebDriver driver = DriverFactory.getDriver(RunEnv, BrowserName);
     WaitTypes wait;
-
     String title;
     String expectedTitle;
     String HeadingText;
@@ -63,7 +62,7 @@ public class JobBoardTest {
         driver.get(ReadProperties.getURL());
         System.out.println("Open browser");
         driver.manage().window().maximize();
-        wait = new WaitTypes(driver);
+
     }
     @When("^Page Opens successfully get the Page title$")
     public void page_opens_successfully() {
