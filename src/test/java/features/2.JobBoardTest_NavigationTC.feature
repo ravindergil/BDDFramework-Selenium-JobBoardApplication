@@ -17,7 +17,7 @@ Feature: Feature to test Navigation for Job Board Application
     Then Click apply button and print the emailId to the console
     And Close Browser
 
-  @Seventh
+  @Seventh @Regression
   Scenario: 7. Create a new job listing : Create a new job listing.
     When Page Opens click Post a Job
     Then Fill in the necessary details and click the Preview button.

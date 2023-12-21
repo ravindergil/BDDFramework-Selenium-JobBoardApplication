@@ -15,7 +15,7 @@ import java.time.LocalDate;
         glue = {"stepDefinitions"},
         //dryRun = true,
         monochrome = false,
-        plugin={"html:target/cucumber/report.html","json:target/cucumber/report.json"},
+        plugin={"pretty","html:target/cucumber/report.html","json:target/cucumber/report.json"},
         //publish = true,
         tags = ""
 )
